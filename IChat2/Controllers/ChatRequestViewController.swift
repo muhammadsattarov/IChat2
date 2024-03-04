@@ -17,6 +17,7 @@ class ChatRequestViewController: UIViewController {
     lazy var accentButton = UIButton(title: "Accent", titleColor: .white, backgroundColor: .black, font: .apple20(), isShadow: false, cornerRadius: 10)
     lazy var denyButton = UIButton(title: "Deny", titleColor: .red, backgroundColor: .white, font: .apple20(), isShadow: false, cornerRadius: 10)
     
+    weak var delegate: WaitingChatsNavigation?
     private var chat: MChat
     
     init(chat: MChat) {
@@ -35,6 +36,20 @@ class ChatRequestViewController: UIViewController {
         setupViews()
         setConstrains()
         
+        denyButton.addTarget(self, action: #selector(denyButtonTapped), for: .touchUpInside)
+        accentButton.addTarget(self, action: #selector(accentButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func denyButtonTapped() {
+        self.dismiss(animated: true) {
+            self.delegate?.removeWaitingChat(chat: self.chat)
+        }
+    }
+    
+    @objc private func accentButtonTapped() {
+        self.dismiss(animated: true) {
+            self.delegate?.changeToActive(chat: self.chat)
+        }
     }
     
     override func viewWillLayoutSubviews() {

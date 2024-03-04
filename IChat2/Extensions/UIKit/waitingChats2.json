@@ -1,0 +1,35 @@
+
+[
+    {
+        "userName": "bred Pit",
+        "userImageString": "person2",
+        "lastMessage": "Nice to meet you",
+        "id": 6
+    },
+    {
+        "userName": "Lara kroft",
+        "userImageString": "person3",
+        "lastMessage": "Yep!",
+        "id": 7
+    },
+    {
+        "userName": "Eminem",
+        "userImageString": "person8",
+        "lastMessage": "Of course",
+        "id": 8
+    },
+    {
+        "userName": "Sara yung",
+        "userImageString": "person3",
+        "lastMessage": "Now",
+        "id": 9
+    },
+    {
+        "userName": "Mishel ",
+        "userImageString": "person2",
+        "lastMessage": "Tel me",
+        "id": 10
+    }
+]
+
+

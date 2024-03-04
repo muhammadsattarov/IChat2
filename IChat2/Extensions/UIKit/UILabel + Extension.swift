@@ -5,4 +5,12 @@
 //  Created by user on 20/02/24.
 //
 
-import Foundation
+import UIKit
+
+extension UILabel {
+    convenience init(text: String, font: UIFont? = .apple20()) {
+        self.init()
+        self.text = text
+        self.font = font
+    }
+}

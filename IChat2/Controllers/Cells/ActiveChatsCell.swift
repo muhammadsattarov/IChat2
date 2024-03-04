@@ -8,13 +8,20 @@
 
 import UIKit
 
-
 class ActiveChatCell: UICollectionViewCell, SelfConfigureCell {
+    
+    func configure<U>(with value: U) where U : Hashable {
+        guard let chat: MChat = value as? MChat else { return }
+//        friendImageView.image = UIImage(named: chat.userImageString)
+//        friendName.text = chat.userName
+//        lastMessage.text = chat.lastMessage
+    }
+    
     static var reuseId: String = "ActiveChatCell"
     
     let friendImageView = UIImageView()
-    let friendName = UILabel(text: "User name", font: .apple20())
-    let lastMessage = UILabel(text: "How are you?", font: .apple18())
+    let friendName = UILabel(text: "", font: .apple20())
+    let lastMessage = UILabel(text: "", font: .apple18())
     let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: #colorLiteral(red: 0.8309458494, green: 0.7057176232, blue: 0.9536159635, alpha: 1), endColor: #colorLiteral(red: 0.4784313725, green: 0.6980392157, blue: 0.9215686275, alpha: 1))
     
     override init(frame: CGRect) {
@@ -22,12 +29,6 @@ class ActiveChatCell: UICollectionViewCell, SelfConfigureCell {
         setConstrains()
         self.layer.cornerRadius = 4
         self.clipsToBounds = true
-    }
-    
-    func configure(with value: MChat) {
-        friendImageView.image = UIImage(named: value.userImageString)
-        friendName.text = value.userName
-        lastMessage.text = value.lastMessage
     }
     
     required init?(coder: NSCoder) {
@@ -43,9 +44,7 @@ extension ActiveChatCell {
         friendName.translatesAutoresizingMaskIntoConstraints = false
         lastMessage.translatesAutoresizingMaskIntoConstraints = false
         gradientView.translatesAutoresizingMaskIntoConstraints = false
-        
-        gradientView.backgroundColor = .black
-        
+                
         addSubview(friendImageView)
         addSubview(friendName)
         addSubview(lastMessage)
@@ -74,28 +73,3 @@ extension ActiveChatCell {
         ])
     }
 }
-//
-//// MARK: - SwiftUI canvas
-//
-//import SwiftUI
-//
-//struct ActiveChatsProvider: PreviewProvider {
-//    static var previews: some View {
-//        ContainerView().edgesIgnoringSafeArea(.all)
-//    }
-//    
-//    struct ContainerView: UIViewControllerRepresentable {
-//        let tabbarController = MainTabBarController()
-//
-//        
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            tabbarController
-//        }
-//        
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//            
-//        }
-//    }
-//}
-//
-

@@ -7,22 +7,24 @@
 
 import UIKit
 
-class WaitingChatsCell: UICollectionViewCell, SelfConfigureCell {
-    static var reuseId: String = "WaitingChatsCell"
+class WaitingChatCell: UICollectionViewCell, SelfConfigureCell {
     
-    let imageOfView = UIImageView()
+    static var reuseId: String = "WaitingChatCell"
+    
+    let friendImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemGray2
+        backgroundColor = .systemGray2
         self.contentMode = .scaleAspectFit
         self.layer.cornerRadius = 4
         self.clipsToBounds = true
         setConstrains()
     }
     
-    func configure(with value: MChat) {
-        imageOfView.image = UIImage(named: value.userImageString)
+    func configure<U>(with value: U) where U : Hashable {
+        guard let chat: MChat = value as? MChat else { return }
+        friendImageView.sd_setImage(with: URL(string: chat.friendUserImageString))
     }
     
     required init?(coder: NSCoder) {
@@ -30,14 +32,13 @@ class WaitingChatsCell: UICollectionViewCell, SelfConfigureCell {
     }
     
     private func setConstrains() {
-        self.addSubview(imageOfView)
-        imageOfView.translatesAutoresizingMaskIntoConstraints = false
-        
+        friendImageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(friendImageView)
         NSLayoutConstraint.activate([
-            imageOfView.topAnchor.constraint(equalTo: self.topAnchor),
-            imageOfView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            imageOfView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageOfView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            friendImageView.topAnchor.constraint(equalTo: self.topAnchor),
+            friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            friendImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            friendImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
 }
