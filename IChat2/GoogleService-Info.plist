@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDSPFcnPVeOxSP9pVdgduzLgAnLzGy9TQw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>863359484199</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>uz.pdp.IChat2</string>
+	<key>PROJECT_ID</key>
+	<string>ichat2-845ab</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ichat2-845ab.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:863359484199:ios:32b8411ebe55e49d82a902</string>
+</dict>
+</plist>
